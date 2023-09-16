@@ -1,10 +1,10 @@
 # Host Wordpress website to AWS
 
-We are going to pick a virtual computer from the AWS and install Apache which is the webserver and we also need a database(My SQL). 
+We will begin by selecting a virtual computer (EC2 instance) on AWS and configuring it with Apache, which serves as the web server. Additionally, we'll set up a MySQL database to support our web application.
 
-Once we are ready with the configuration of the server and database we will install the Wordpress. This wordpress does not involve in any coding, we can just create and modify our website and deploy that in to AWS.
+Once our server and database configurations are complete, we will proceed to install WordPress. It's important to note that this WordPress installation won't require any coding skills; instead, we can easily create and customize our website using WordPress's user-friendly interface. Subsequently, we will deploy the WordPress website on AWS.
 
-After we deploy the webiste to AWS it will be giving us a random domain, but we will be creating a custom domain for your self and also attaching an ssl certificate to call the website to http<b>s</b> (secured).  
+Following the deployment, the website will initially be assigned a random domain. However, we have plans to establish a custom domain for our website. Furthermore, we will enhance the website's security by attaching an SSL certificate, enabling HTTPS (secured) access for visitors.
 
 ---
 ### Creating an EC2 instance:
