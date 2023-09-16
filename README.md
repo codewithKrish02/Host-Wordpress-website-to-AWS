@@ -4,7 +4,6 @@ We will begin by selecting a virtual computer (EC2 instance) on AWS and configur
 
 Once our server and database configurations are complete, we will proceed to install WordPress. It's important to note that this WordPress installation won't require any coding skills; instead, we can easily create and customize our website using WordPress's user-friendly interface. Subsequently, we will deploy the WordPress website on AWS.
 
-Following the deployment, the website will initially be assigned a random domain. However, we have plans to establish a custom domain for our website. Furthermore, we will enhance the website's security by attaching an SSL certificate, enabling HTTPS (secured) access for visitors.
 
 ---
 ### Creating an EC2 instance:
@@ -156,12 +155,62 @@ By following these steps, you'll install WordPress on your server and connect it
 
 Here are the instructions for dealing with any errors encountered during the database creation process in WordPress:
 
-```
 Note: If you encounter any error while creating the database regarding the 'wp-config.php' simply copy the properties which it has given to you, and navigate to the WordPress folder.
 
+```
 > cd /var/www/html/wordpress/
 > nano wp-config.php
 ```
 Paste all those properties into this file, save, and exit.
 After following these steps, you should be able to log in to your WordPress dashboard and configure your settings as needed.
+
+After successfully installing WordPress, follow these steps to configure it:
+
+1. **Enter the Following Details:**
+   - Site Title: Blog Site
+   - Username: codewithKrish
+   - Password: Make sure to set a strong password for security.
+   - Email: Provide your email address.
+   
+   Proceed with the WordPress installation.
+
+2. **Access the WordPress Sample Page:**
+   - After installation, navigate to the following URL to view the sample page provided by WordPress, confirming that the installation was successful:
+   
+   ```
+   your_ip_address/wordpress
+   ```
+
+3. **Customize Your Website:**
+   - To start customizing your website, log in to your WordPress account using the credentials you just created:
+   
+   ```
+   your_ip_address/wp-login.php
+   ```
+
+Currently, your homepage is accessed by entering your IP address followed by "/wordpress." However, I prefer to have my homepage load automatically when I enter my IP address without the "/wordpress" extension. Let's adjust this configuration.
+
+### Changing the document root location:
+
+In the terminal, navigate to the specified directory:
+
+```
+cd /etc/apache2/sites-available/
+```
+
+List the contents of the directory using the `ls` command.
+
+You will find a file named `000-default.conf`. Open this file with elevated permissions using the following command:
+
+```
+sudo nano 000-defualt.conf
+```
+
+Within this file, you should modify the document root to point to `/var/www/html/wordpress`. After making this change, restart the Apache web server to apply the configuration adjustment:
+
+```
+sudo systemctl restart apache2
+```
+
+By reloading the page now, you should observe the WordPress homepage when you enter your IP address directly in your web browser.
 
