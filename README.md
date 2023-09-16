@@ -108,3 +108,60 @@ These steps collectively prepare your server for hosting WordPress by installing
 
 ---
 ### Install Wordpress:
+Certainly, here's the entire process with descriptions that you can copy and follow:
+
+1. **Navigate to the Temporary Directory:**
+   - Change your current directory to the `/tmp` directory in your shell, where you'll temporarily store the WordPress installation package.
+
+   ```
+   cd /tmp
+   ```
+
+2. **Download the WordPress Package:**
+   - Download the WordPress installation package using the `wget` command from the provided link. This retrieves the necessary files to install WordPress on your server.
+
+   ```
+   wget https://wordpress.org/wordpress-6.3.1.tar.gz
+   ```
+
+3. **Unzip and Move WordPress Files:**
+   - Unzip the downloaded WordPress package and move its contents to the root directory of the Apache web server. Placing them in `/var/www/html/` allows you to serve the WordPress site from the webserver's document root.
+
+   ```
+   tar -xvf yourfilename.tar.gz
+   sudo mv wordpress/ /var/www/html/
+   ```
+
+4. **Access the WordPress Installation Screen:**
+   - Open a web browser and go to the following URL to initiate the WordPress installation process:
+
+   ```
+   http://static_ipaddress/wordpress
+   ```
+
+   This URL takes you to the WordPress setup screen.
+
+5. **Configure Database Settings:**
+   - On the WordPress installation screen, configure the database settings to connect WordPress with the MySQL database you created earlier.
+   - **Database Name**: Specify the name of the database, typically `wp`.
+   - **Username**: Choose a username, for example, `wp_database`.
+   - **Password**: Enter a strong password (consider using the one used when creating the MySQL database for consistency).
+   - **Database Host**: The default value, "localhost," is usually correct.
+   - **Table Prefix**: Keep it as "wp_" (default).
+
+6. **Submit the Form:**
+   - After entering these database configuration details, submit the form. WordPress will validate the settings and proceed with the installation process.
+
+By following these steps, you'll install WordPress on your server and connect it to the MySQL database, allowing you to start building and customizing your website.
+
+Here are the instructions for dealing with any errors encountered during the database creation process in WordPress:
+
+```
+Note: If you encounter any error while creating the database regarding the 'wp-config.php' simply copy the properties which it has given to you, and navigate to the WordPress folder.
+
+> cd /var/www/html/wordpress/
+> nano wp-config.php
+```
+Paste all those properties into this file, save, and exit.
+After following these steps, you should be able to log in to your WordPress dashboard and configure your settings as needed.
+
